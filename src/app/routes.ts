@@ -7,11 +7,36 @@ import { JobMatchPage } from "./pages/JobMatchPage";
 import { PortfolioPage } from "./pages/PortfolioPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { AnalyticsPage } from "./pages/AnalyticsPage";
+import { OnboardingStep1 } from "./pages/onboarding/OnboardingStep1";
+import { OnboardingStep2 } from "./pages/onboarding/OnboardingStep2";
+import { OnboardingStep3 } from "./pages/onboarding/OnboardingStep3";
+import { OnboardingStep4 } from "./pages/onboarding/OnboardingStep4";
+import { OnboardingStep5 } from "./pages/onboarding/OnboardingStep5";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: HomePage,
+  },
+  {
+    path: "/onboarding/step1",
+    Component: OnboardingStep1,
+  },
+  {
+    path: "/onboarding/step2",
+    Component: OnboardingStep2,
+  },
+  {
+    path: "/onboarding/step3",
+    Component: OnboardingStep3,
+  },
+  {
+    path: "/onboarding/step4",
+    Component: OnboardingStep4,
+  },
+  {
+    path: "/onboarding/step5",
+    Component: OnboardingStep5,
   },
   {
     path: "/dashboard",

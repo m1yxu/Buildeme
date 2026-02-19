@@ -37,7 +37,7 @@ export function Header() {
             로그인
           </button>
           <button
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/onboarding/step1")}
             className="bg-[#0052FF] hover:bg-[#0047E0] text-white px-5 py-2 rounded-lg text-[15px] font-medium transition-colors"
           >
             시작하기

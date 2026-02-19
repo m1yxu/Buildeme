@@ -32,7 +32,7 @@ export function HomePage() {
               className="flex-1 bg-white border border-[#D1D5DB] rounded-lg px-4 py-3.5 text-[15px] text-[#1A1A1A] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#0052FF] focus:border-transparent transition-all"
             />
             <button
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate("/onboarding/step1")}
               className="bg-[#0052FF] hover:bg-[#0047E0] text-white px-6 py-3.5 rounded-lg font-medium text-[15px] transition-colors whitespace-nowrap"
             >
               시작하기
@@ -289,7 +289,7 @@ export function HomePage() {
             무료로 첫 포트폴리오를 만들어보세요
           </p>
           <button
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/onboarding/step1")}
             className="bg-white hover:bg-gray-100 text-[#0052FF] px-8 py-4 rounded-lg font-semibold text-[16px] transition-colors"
           >
             무료로 시작하기
@@ -332,7 +332,7 @@ const faqs = [
   },
   {
     question: "무료로 사용할 수 있나요?",
-    answer: "기본 기능은 무료로 사용할 수 있으며, 프리미엄 기능(무제한 버전 생성, 고급 분석 등)은 유료 플랜을 통해 이용 가능합니다."
+    answer: "기본 기능은 무료로 사용할 수 있으며, 프리미엄 기능(무제한 버전 생성, 고급 분석 등)은 유료 플랜을 통해 이용 가능합��다."
   },
   {
     question: "어떤 직무에 사용할 수 있나요?",
