@@ -46,26 +46,6 @@ export function DashboardPage() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-4 gap-4 mb-8">
-          <div className="bg-[#FAFAFA] rounded-lg p-5">
-            <p className="text-[13px] text-[#6B7280] mb-1">평균 점수</p>
-            <p className="text-[28px] font-semibold text-[#1A1A1A]">82</p>
-          </div>
-          <div className="bg-[#FAFAFA] rounded-lg p-5">
-            <p className="text-[13px] text-[#6B7280] mb-1">생성한 버전</p>
-            <p className="text-[28px] font-semibold text-[#1A1A1A]">7</p>
-          </div>
-          <div className="bg-[#FAFAFA] rounded-lg p-5">
-            <p className="text-[13px] text-[#6B7280] mb-1">매칭도</p>
-            <p className="text-[28px] font-semibold text-[#1A1A1A]">78%</p>
-          </div>
-          <div className="bg-[#FAFAFA] rounded-lg p-5">
-            <p className="text-[13px] text-[#6B7280] mb-1">이번 달</p>
-            <p className="text-[28px] font-semibold text-[#1A1A1A]">+2</p>
-          </div>
-        </div>
-
         {/* Recent Activity */}
         <div>
           <h2 className="text-[18px] font-semibold text-[#1A1A1A] mb-4">최근 활동</h2>

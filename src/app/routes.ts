@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import { HomePage } from "./pages/HomePage";
+import { LoginPage } from "./pages/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { InterviewPage } from "./pages/InterviewPage";
 import { ResultPage } from "./pages/ResultPage";
@@ -7,16 +8,23 @@ import { JobMatchPage } from "./pages/JobMatchPage";
 import { PortfolioPage } from "./pages/PortfolioPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { AnalyticsPage } from "./pages/AnalyticsPage";
+import { MyPage } from "./pages/MyPage";
 import { OnboardingStep1 } from "./pages/onboarding/OnboardingStep1";
 import { OnboardingStep2 } from "./pages/onboarding/OnboardingStep2";
 import { OnboardingStep3 } from "./pages/onboarding/OnboardingStep3";
 import { OnboardingStep4 } from "./pages/onboarding/OnboardingStep4";
 import { OnboardingStep5 } from "./pages/onboarding/OnboardingStep5";
+import { OnboardingStep6 } from "./pages/onboarding/OnboardingStep6";
+import { OnboardingStep7 } from "./pages/onboarding/OnboardingStep7";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: HomePage,
+  },
+  {
+    path: "/login",
+    Component: LoginPage,
   },
   {
     path: "/onboarding/step1",
@@ -39,8 +47,20 @@ export const router = createBrowserRouter([
     Component: OnboardingStep5,
   },
   {
+    path: "/onboarding/step6",
+    Component: OnboardingStep6,
+  },
+  {
+    path: "/onboarding/step7",
+    Component: OnboardingStep7,
+  },
+  {
     path: "/dashboard",
     Component: DashboardPage,
+  },
+  {
+    path: "/mypage",
+    Component: MyPage,
   },
   {
     path: "/experience",

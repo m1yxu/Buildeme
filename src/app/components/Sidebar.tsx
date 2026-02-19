@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { LayoutDashboard, FileText, MessageSquare, Sparkles, BarChart3, Settings, HelpCircle } from "lucide-react";
+import { LayoutDashboard, FileText, MessageSquare, Sparkles, BarChart3, User, Settings } from "lucide-react";
 
 const menuItems = [
   { path: "/dashboard", label: "대시보드", icon: LayoutDashboard },
@@ -53,10 +53,20 @@ export function Sidebar() {
           <Settings className="w-5 h-5" />
           <span>설정</span>
         </button>
-        <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-[14px] text-[#6B7280] hover:bg-[#F9FAFB] hover:text-[#1A1A1A] transition-colors">
-          <HelpCircle className="w-5 h-5" />
-          <span>도움말</span>
-        </button>
+        <Link 
+          to="/mypage"
+          className={`
+            w-full flex items-center gap-3 px-3 py-2 rounded-lg text-[14px] transition-colors
+            ${
+              location.pathname === "/mypage"
+                ? "bg-[#EEF2FF] text-[#0052FF] font-medium"
+                : "text-[#6B7280] hover:bg-[#F9FAFB] hover:text-[#1A1A1A]"
+            }
+          `}
+        >
+          <User className="w-5 h-5" />
+          <span>마이페이지</span>
+        </Link>
       </div>
 
       <div className="p-4 border-t border-[#E5E7EB]">

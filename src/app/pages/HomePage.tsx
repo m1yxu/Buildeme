@@ -39,7 +39,7 @@ export function HomePage() {
             </button>
           </div>
           <p className="text-[13px] text-[#6B7280]">
-            이미 계정이 있으신가요? <button className="text-[#0052FF] hover:underline">로그인</button>
+            이미 계정이 있으신가요? <button onClick={() => navigate("/login")} className="text-[#0052FF] hover:underline">로그인</button>
           </p>
         </div>
 
@@ -332,7 +332,7 @@ const faqs = [
   },
   {
     question: "무료로 사용할 수 있나요?",
-    answer: "기본 기능은 무료로 사용할 수 있으며, 프리미엄 기능(무제한 버전 생성, 고급 분석 등)은 유료 플랜을 통해 이용 가능합��다."
+    answer: "기본 기능은 무료로 사용할 수 있으며, 프리미엄 기능(무제한 버전 생성, 고급 분석 등)은 유료 플랜을 통해 이용 가능합다."
   },
   {
     question: "어떤 직무에 사용할 수 있나요?",

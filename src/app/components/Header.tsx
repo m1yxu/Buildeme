@@ -33,7 +33,10 @@ export function Header() {
           <a href="#faq" className="text-[15px] text-[#6B7280] hover:text-[#1A1A1A] transition-colors">
             FAQ
           </a>
-          <button className="text-[15px] text-[#6B7280] hover:text-[#1A1A1A] transition-colors">
+          <button 
+            onClick={() => navigate("/login")}
+            className="text-[15px] text-[#6B7280] hover:text-[#1A1A1A] transition-colors"
+          >
             로그인
           </button>
           <button

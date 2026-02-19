@@ -10,26 +10,22 @@ const popularJobs = [
   "데이터 분석가",
   "UX 디자이너",
   "백엔드 개발자",
+  "영업/세일즈",
+  "고객 성공 매니저",
 ];
 
 export function OnboardingStep3() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedJobs, setSelectedJobs] = useState<string[]>([]);
+  const [selectedJob, setSelectedJob] = useState("");
 
   const handleSelectJob = (job: string) => {
-    if (!selectedJobs.includes(job)) {
-      setSelectedJobs([...selectedJobs, job]);
-      setSearchTerm("");
-    }
-  };
-
-  const handleRemoveJob = (job: string) => {
-    setSelectedJobs(selectedJobs.filter((j) => j !== job));
+    setSelectedJob(job);
+    setSearchTerm("");
   };
 
   const handleNext = () => {
-    if (selectedJobs.length > 0) {
+    if (selectedJob || searchTerm) {
       navigate("/onboarding/step4");
     }
   };
@@ -56,10 +52,10 @@ export function OnboardingStep3() {
           
           {/* Progress */}
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-[13px] font-medium text-[#0052FF]">3/5 단계</span>
+            <span className="text-[13px] font-medium text-[#0052FF]">2/6 단계</span>
           </div>
           <div className="w-full h-1.5 bg-[#F3F4F6] rounded-full overflow-hidden">
-            <div className="h-full bg-[#0052FF] w-[60%] transition-all duration-500" />
+            <div className="h-full bg-[#0052FF] w-[33.33%] transition-all duration-500" />
           </div>
         </div>
       </div>
@@ -73,11 +69,12 @@ export function OnboardingStep3() {
             transition={{ duration: 0.4 }}
           >
             <h1 className="text-[36px] font-semibold text-[#1A1A1A] mb-3">
-              준비 중인 직무를<br />
-              선택해주세요
+              어떤 분야에서<br />
+              일하고 계신가요?
             </h1>
             <p className="text-[16px] text-[#6B7280] mb-8">
-              직무에 맞춰 성과 구조를 다르게 분석합니다.
+              현재 또는 희망하는 직무를 선택해주세요.<br />
+              이 정보를 바탕으로 포트폴리오 구성과 강조할 내용이 결정됩니다.
             </p>
 
             {/* Search Input */}
@@ -86,49 +83,42 @@ export function OnboardingStep3() {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="예: PM, 마케팅, 프론트엔드, 데이터 분석"
+                placeholder="직무명을 입력하거나 아래에서 선택해주세요"
                 className="w-full bg-white border border-[#D1D5DB] rounded-lg px-4 py-3.5 text-[15px] text-[#1A1A1A] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#0052FF] focus:border-transparent transition-all"
               />
             </div>
 
-            {/* Selected Jobs */}
-            {selectedJobs.length > 0 && (
+            {/* Selected Job */}
+            {selectedJob && (
               <div className="mb-6">
-                <p className="text-[14px] text-[#6B7280] mb-3">선택한 직무</p>
-                <div className="flex flex-wrap gap-2">
-                  {selectedJobs.map((job) => (
-                    <div
-                      key={job}
-                      className="bg-[#EEF2FF] border border-[#0052FF] text-[#0052FF] px-4 py-2 rounded-lg flex items-center gap-2"
-                    >
-                      <span className="text-[14px] font-medium">{job}</span>
-                      <button
-                        onClick={() => handleRemoveJob(job)}
-                        className="hover:bg-[#0052FF] hover:text-white rounded transition-colors"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    </div>
-                  ))}
+                <p className="text-[13px] text-[#6B7280] mb-2">선택한 직무</p>
+                <div className="inline-flex items-center gap-2 bg-[#EEF2FF] border border-[#0052FF] text-[#0052FF] px-4 py-2 rounded-lg">
+                  <span className="text-[14px] font-medium">{selectedJob}</span>
+                  <button
+                    onClick={() => setSelectedJob("")}
+                    className="hover:bg-[#0052FF] hover:text-white rounded transition-colors p-0.5"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
             )}
 
             {/* Popular Jobs */}
             <div className="mb-8">
-              <p className="text-[14px] text-[#6B7280] mb-3">인기 직무</p>
+              <p className="text-[14px] text-[#6B7280] mb-3">자주 선택되는 직무</p>
               <div className="flex flex-wrap gap-2">
                 {popularJobs.map((job) => (
                   <button
                     key={job}
                     onClick={() => handleSelectJob(job)}
-                    disabled={selectedJobs.includes(job)}
+                    disabled={selectedJob === job}
                     className={`
-                      px-4 py-2 rounded-lg text-[14px] font-medium transition-all
+                      px-4 py-2.5 rounded-lg text-[14px] font-medium transition-all
                       ${
-                        selectedJobs.includes(job)
-                          ? "bg-[#F3F4F6] text-[#9CA3AF] cursor-not-allowed"
-                          : "bg-white border border-[#E5E7EB] text-[#1A1A1A] hover:border-[#0052FF] hover:bg-[#EEF2FF]"
+                        selectedJob === job
+                          ? "bg-[#EEF2FF] border-2 border-[#0052FF] text-[#0052FF]"
+                          : "bg-white border border-[#E5E7EB] text-[#1A1A1A] hover:border-[#D1D5DB]"
                       }
                     `}
                   >
@@ -141,11 +131,11 @@ export function OnboardingStep3() {
             {/* Next Button */}
             <button
               onClick={handleNext}
-              disabled={selectedJobs.length === 0}
+              disabled={!selectedJob && !searchTerm}
               className={`
                 w-full py-4 rounded-lg font-semibold text-[16px] transition-all
                 ${
-                  selectedJobs.length > 0
+                  selectedJob || searchTerm
                     ? "bg-[#0052FF] hover:bg-[#0047E0] text-white"
                     : "bg-[#F3F4F6] text-[#9CA3AF] cursor-not-allowed"
                 }
